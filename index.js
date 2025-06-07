@@ -5,6 +5,19 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+let movieName = '';
+process.argv.forEach((arg) => {
+	if (arg.startsWith('--movieName=')) {
+		movieName = arg.split('=')[1];
+	}
+});
+
+if (movieName === '') {
+	console.error('Please provide a movie name using the --movieName argument.');
+	process.exit(1);
+}
+
+
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 const browser = await remote({
@@ -18,18 +31,6 @@ const browser = await remote({
 		}
 	}
 });
-
-let movieName = '';
-process.argv.forEach((arg) => {
-	if (arg.startsWith('--movieName=')) {
-		movieName = arg.split('=')[1];
-	}
-});
-
-if (movieName === '') {
-	console.error('Please provide a movie name using the --movieName argument.');
-	process.exit(1);
-}
 
 await browser.url('https://einthusan.tv/login/?lang=tamil');
 await browser.setTimeout({ implicit: 10000 });
