@@ -82,10 +82,7 @@ try {
 	}
 
 	console.log(`Video URL: ${videoUrl}`);
-	await browser.downloadFile(videoUrl, {
-		directory: __dirname,
-		filename: `${movieName}.mp4`
-	});
+	await browser.downloadFile(videoUrl, __dirname);
 	console.log(`Movie downloaded as ${movieName}.mp4`);
 }
 catch (error) {
