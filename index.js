@@ -62,8 +62,8 @@ try {
 	await browser.$("//div[@id='search']/a").click();
 	await sleep(1000); // Wait for the input to be set
 
-	await browser.$(`//section[@id='UIMovieSummary']/ul/li/div[@class='block2']/a/h3[text()='${movieName}']`).waitForDisplayed({ timeout: 5000 });
-	await browser.$(`//section[@id='UIMovieSummary']/ul/li/div[@class='block2']/a/h3[text()='${movieName}']`).click();
+	await browser.$(`//section[@id='UIMovieSummary']/ul/li/div[@class='block2']/a/h3`).waitForDisplayed({ timeout: 5000 });
+	await browser.$(`//section[@id='UIMovieSummary']/ul/li/div[@class='block2']/a/h3`).click();
 
 	try {
 		await browser.$("//span[text()='superior quality']").waitForDisplayed({ timeout: 5000 });
