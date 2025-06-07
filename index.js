@@ -57,7 +57,7 @@ await browser.$('#login-submit').click();
 await browser.$("//div[@id='search']/input").waitForDisplayed({ timeout: 5000 });
 await browser.$("//div[@id='search']/input").setValue(movieName);
 await sleep(1000); // Wait for the input to be set
-await browser.$("//div[@id='search']/input").keys('Enter');
+await browser.$("//div[@id='search']/a").click();
 await sleep(1000); // Wait for the input to be set
 
 await browser.$(`//section[@id='UIMovieSummary']/ul/li/div[@class='block2']/a/h3[text()='${movieName}']`).waitForDisplayed({ timeout: 5000 });
