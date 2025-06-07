@@ -1,6 +1,7 @@
 import { remote } from 'webdriverio';
 import path from 'path';
 import { fileURLToPath } from 'url';
+let { uuid } = require('uuid').v4;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,7 +25,10 @@ const browser = await remote({
 	capabilities: {
 		browserName: 'chrome',
 		'goog:chromeOptions': {
-			args: process.env.CI ? ['headless', 'disable-gpu'] : [],
+			args: ['headless',
+				'disable-gpu',
+				'user-data-dir=' + path.join(__dirname, `/${uuid()}`)
+			],
 			prefs: {
 				"download.default_directory": __dirname
 			}
