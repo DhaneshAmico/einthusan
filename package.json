@@ -9,6 +9,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "path": "^0.12.7",
+    "url": "^0.11.4",
     "webdriverio": "^9.15.0"
   }
 }
